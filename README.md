@@ -4,7 +4,7 @@ Built with NEXTJS, SQL, and Prisma.
 
 ## Live Demo
 
-Visit the live demo [here](#) (Replace with your actual live demo link).
+Visit the live demo [[here](https://newspaper-website-rosy.vercel.app/)](#).
 
 ## Project Overview
 
@@ -18,7 +18,7 @@ The project begins with a well-thought-out schema designed according to the Enti
 
 ![ERD Diagram](/public/ERD.png)
 
-### 2. [Next Project Step Title]
+### 2. API Making
 
 Add a brief description of the next project step here.
 
