@@ -10,11 +10,10 @@ export async function CreateToken(email, id) {
         .setIssuer(process.env.JWR_ISSUER)
         .setExpirationTime(process.env.JWR_EXPIRATION)
         .sign(secret)
-
-        return token
+    return token
 }
 
-export async function VerifyToken(token){
+export async function VerifyToken(token) {
     const secret = new TextEncoder().encode(process.env.JWR_SECRET)
     const decoded = await jwtVerify(token, secret)
     return decoded['payload']

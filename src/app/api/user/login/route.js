@@ -13,7 +13,7 @@ export async function POST(req, res) {
         if (result.length === 0) {
             return NextResponse.json({ status: 'Fail', data: result })
         } else {
-            let token = await CreateToken(result['email', result['id']])
+            let token = await CreateToken(result['email'], result['id'])
             let expireDuration = new Date(Date.now() + 24 * 60 * 60 * 1000)
             const cookiesString = `token=${token};expires=${expireDuration.toUTCString()};path= /`
 
