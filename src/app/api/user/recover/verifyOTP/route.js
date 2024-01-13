@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 export async function POST(req, res) {
     try {
         const reqBody = await req.json()
-        console.log(reqBody)
         const prisma = new PrismaClient()
         const count = await prisma.users.count({ where: reqBody })
         if ( count === 1 ) {

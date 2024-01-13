@@ -10,7 +10,6 @@ export async function middleware(req, res) {
         let requestHeader = new Headers(req.headers);
         requestHeader.set('email', payload['email']);
         requestHeader.set('id', payload['id']);
-        console.log(payload)
         return NextResponse.next({ request: { headers: requestHeader } });
 
     } catch (error) {

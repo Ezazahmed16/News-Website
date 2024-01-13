@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 export async function POST(req, res) {
     try {
         let reqBody = await req.json();
-        console.log(reqBody)
         const prisma = new PrismaClient();
         const count = await prisma.users.count({ where: { email: reqBody['email'], otp: reqBody['otp'] } })
 
