@@ -43,6 +43,8 @@ model comments {
   news_listId Int?
   users       users?     @relation(fields: [usersId], references: [id], onDelete: Restrict, onUpdate: Cascade)
   news_list   news_list? @relation(fields: [news_listId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  createdAt   DateTime   @default(now()) @db.Timestamp(0)
+  updatedAt   DateTime   @default(now()) @updatedAt @db.Timestamp(0)
 }
 
 model users {
