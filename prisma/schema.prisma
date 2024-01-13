@@ -36,6 +36,15 @@ model news_list {
   updatedAt  DateTime    @default(now()) @updatedAt @db.Timestamp(0)
 }
 
+model comments {
+  id          Int        @id @default(autoincrement())
+  description String     @db.VarChar(1000)
+  usersId     Int?
+  news_listId Int?
+  users       users?     @relation(fields: [usersId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+  news_list   news_list? @relation(fields: [news_listId], references: [id], onDelete: Restrict, onUpdate: Cascade)
+}
+
 model users {
   id        Int        @id @default(autoincrement())
   firstName String     @db.VarChar(50)
@@ -47,15 +56,6 @@ model users {
   comments  comments[]
   createdAt DateTime   @default(now()) @db.Timestamp(0)
   updatedAt DateTime   @default(now()) @updatedAt @db.Timestamp(0)
-}
-
-model comments {
-  id          Int        @id @default(autoincrement())
-  description String     @db.VarChar(1000)
-  usersId     Int?
-  news_listId Int?
-  users       users?     @relation(fields: [usersId], references: [id], onDelete: Restrict, onUpdate: Cascade)
-  news_list   news_list? @relation(fields: [news_listId], references: [id], onDelete: Restrict, onUpdate: Cascade)
 }
 
 model sociaals {
@@ -78,7 +78,7 @@ model subscribers {
 }
 
 model policies {
-  id Int @id @default(autoincrement())
+  id       Int    @id @default(autoincrement())
   long_des String @db.LongText
-  type String @db.VarChar(50)
+  type     String @db.VarChar(50)
 }
